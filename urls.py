@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from EasyAdmin import views
 from easy_admin_app import views
 
 
 urlpatterns = [
-url(r'^$', views.HomeView.as_view(), name='home'),
-url(r'^admin/', admin.site.urls),
+	url(r'^$', views.index, name='index'),
+	url(r'^admin/', admin.site.urls),
 ]

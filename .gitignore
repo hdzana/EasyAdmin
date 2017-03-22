@@ -1,0 +1,6 @@
+.settings/*
+*.pyc
+.project
+.pydevproject
+easy_admin_app/migrations/*
+.idea/
