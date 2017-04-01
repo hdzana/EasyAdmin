@@ -21,6 +21,6 @@ from easy_admin_app import views
 urlpatterns = [
 	url(r'^$', views.index, name='index'),
 	#url(r'^admin/login/', views.login),
-    url(r'^admin/welcome', views.welcome, name='welcome'),
+    url(r'^welcome/', views.welcome, name='welcome'),
     url(r'^admin/', admin.site.urls),
 ]
