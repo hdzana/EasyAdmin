@@ -1,0 +1,101 @@
+@charset "UTF-8"
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900&subset=latin-ext')
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,800&subset=latin-ext')
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700&subset=latin-ext')
+
+
+body {
+		background: #fff;
+		max-width: 100%;
+		overflow-x: hidden!important;
+		font-family: 'Open Sans', sans-serif;
+		margin:0 auto;
+	}
+
+.dashboard {
+    height: 100%!important;
+}
+
+.dashboard #container {
+    height: 100vh!important;
+}
+
+
+#cover {
+	background-image: url(/static/easy_admin_app/img/cover1.jpg);
+    text-align: center!important;
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover;
+    height: 100%;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#cover .container-fluid {
+	background: rgba(0,0,0,0.4);
+	height: 100vh!important;
+}
+
+#cover h1 {
+    color: #fefefe;
+    margin-top: 200px;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#cover .description {
+	color: #fefefe;
+	font-weight: bold;
+	font-size: 20px;
+}
+#cover .to-start {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid #fefefe;
+    padding: 15px 90px;
+    color: #fefefe;
+    margin-top:60px;
+    margin-bottom: 20px!important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+#footer {
+    background-color: #1d212b;
+    position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+#footer span {
+    color: #474747;
+    padding: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+
+#header {
+    background-color: #1d212b;
+    height: 70px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 26px;
+    text-align: center;
+}
+
+#header .header-title {
+    font-size: 20px;
+}
+
+#header .report {
+   text-transform: uppercase;
+    font-size: 16px;
+    text-align: center;
+    /*margin-right: -200px;*/
+}

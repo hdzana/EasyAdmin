@@ -1,0 +1,17 @@
+{% extends "admin/base.html" %}
+
+{% block extrastyle %}
+
+<link rel="stylesheet" type="text/css" href="/static/easy_admin_app/css/style.css" />
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+{% endblock %}
+
+<a href="{% url django.contrib.auth.views.login %}?next={% url '/welcome' %}">Login</a>
+
+{% block footer %}
+<div id="footer">
+    <br><span> Copyright (C): Džana Hanić 2017 </span> <br>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</div>
+{% endblock %}

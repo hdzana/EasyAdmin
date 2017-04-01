@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from .util import STUDENT_STATUS, AC_YEAR
 
 
 class City(models.Model):
@@ -48,3 +49,132 @@ class Address(models.Model):
         db_table = 'addresses'
         verbose_name = _('Address')
         verbose_name_plural = _('Addresses')
+
+
+
+class SchoolYear(models.Model):
+    name = models.TextField(verbose_name=_('Name'))
+    start_date = models.DateField(verbose_name=_('Start date'))
+    end_date = models.DateField(verbose_name=_('End date'))
+    
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'school_years'
+        verbose_name = _('School Year')
+        verbose_name_plural = _('School Years')
+
+
+class AcademicYear(models.Model):
+    name = models.CharField(max_length=50, choices=AC_YEAR, default="", verbose_name=_('Name'))
+    school_year = models.ForeignKey(
+        SchoolYear,
+        related_name='academicyears',
+        on_delete=models.CASCADE, verbose_name=_('School year'))
+
+    def __str__(self):
+        return self.name
+        
+    class Meta:
+        db_table = 'academic_years'
+        verbose_name = _('Academic Year')
+        verbose_name_plural = _('Academic Years')
+
+
+class Subject(models.Model):
+    name = models.TextField(verbose_name=_('Name'))
+    limit = models.IntegerField(verbose_name=_('Maximum number of students'))
+    #professor
+    #assistant
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'subjects'
+        verbose_name = _('Subject')
+        verbose_name_plural = _('Subjects')
+
+
+class ProgrammeOfStudy(models.Model):
+    name = models.TextField(verbose_name=_('Programme Name'))
+    limit = models.IntegerField(verbose_name=_('Limit'))
+    academic_year = models.ForeignKey(
+        AcademicYear,
+        related_name='programmes',
+        default="",
+        on_delete=models.CASCADE, verbose_name=_('Academic year'))
+    subjects = models.ManyToManyField(Subject, blank=True, verbose_name=_('Subjects'))
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'programmes'
+        verbose_name = _('Programme of Study')
+        verbose_name_plural = _('Programmes of Study')
+
+
+class Student(models.Model):
+    first_name = models.TextField(verbose_name=_('First name'))
+    last_name = models.TextField(verbose_name=_('Last name'))
+    date_of_birth = models.DateField(verbose_name=_('Date of birth'))
+    municipality_of_birth = models.ForeignKey(District, verbose_name=_('Municipality of birth'))
+    phone_number = models.TextField(null=True,
+                                    blank=True,
+                                    verbose_name=_('Phone number'))
+    email_address = models.EmailField(null=True,
+                                      blank=True,
+                                      verbose_name=_('E-mail'))
+    address = models.ForeignKey(Address,
+                                related_name='students',
+                                on_delete=models.CASCADE,
+                                verbose_name=_('Address'))
+    finished_school = models.TextField(verbose_name=_('Finished school'))
+    index = models.IntegerField(verbose_name=_('Index number'))
+    status = models.CharField(max_length=11, choices=STUDENT_STATUS, default="", verbose_name=_('Enrolment status'))
+    programme_of_study = models.ForeignKey(ProgrammeOfStudy,
+                                related_name='students',
+                                on_delete=models.CASCADE,
+                                verbose_name=_('Programme of Study'))
+
+    def __str__(self):
+        return '{} {}'.format(self.first_name, self.last_name)
+
+    class Meta:
+        db_table = 'students'
+        verbose_name = _('Student')
+        verbose_name_plural = _('Students')
+
+
+class Employee(models.Model):
+    first_name = models.TextField(verbose_name=_('First name'))
+    last_name = models.TextField(verbose_name=_('Last name'))
+    date_of_birth = models.DateField(verbose_name=_('Date of birth'))
+    municipality_of_birth = models.ForeignKey(District, verbose_name=_('Municipality of birth'))
+    phone_number = models.TextField(null=True,
+                                    blank=True,
+                                    verbose_name=_('Broj telefona'))
+    email_address = models.EmailField(null=True,
+                                      blank=True,
+                                      verbose_name=_('E-mail'))
+    address = models.ForeignKey(Address,
+                                related_name='employees',
+                                on_delete=models.CASCADE,
+                                verbose_name=_('Address'))
+    finished_school = models.TextField(verbose_name=_('Zavrsena edukacija'))
+    occupation = models.TextField(verbose_name=_('Steceno zvanje'))
+    #workplace = models.ForeignKey(WorkPlace,
+     #                             related_name='employees',
+      #                            on_delete=models.CASCADE,
+       #                           verbose_name=_('Radno mjesto'))
+    note = models.TextField(verbose_name=_('Napomena'), null=True, blank=True)
+
+    def __str__(self):
+        return '{} {}'.format(self.first_name, self.last_name)
+
+    class Meta:
+        db_table = 'employees'
+        verbose_name = _('Employee')
+        verbose_name_plural = _('Employees')
