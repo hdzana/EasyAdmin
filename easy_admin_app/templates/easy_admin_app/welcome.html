@@ -11,29 +11,85 @@
 <div id="menu">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-sm-12 item">
-				<div class="users">
-					<i class="fa fa-unlock" aria-hidden="true"></i>
-					<h1 class="title">Users<br></h1>
-				</div>
-					<a href="/admin/auth/user/"> Link to new users </a> 
-			</div>
-			<div class="col-md-4 col-sm-12 item">
+			<div class="col-md-4 col-sm-12 item" style="background: #0066cc;">
 				<div class="academic">
-					<i class="fa fa-graduation-cap" aria-hidden="true"></i>
-					<h1 class="title">Academic</h1>
+						<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+						<h1 class="title">Academic</h1>
 				</div>
-					<a href="#"> Link to Academic data</a> 
-
+				<div class="links">
+					<div class="col-md-12 col-sm-12">
+						<a style="text-align: left; float: left;"  href="/admin/easy_admin_app/academicyear/"> Academic years </a>
+						<a style="float:right;"   href="/admin/easy_admin_app/academicyear/add"> New academic y.</a> <br><br>
+					</div>
+					<div class="col-md-12 col-sm-12">
+						<a style="text-align: left; float: left;" href="/admin/easy_admin_app/schoolyear/"> School years </a>
+						<a style="float:right;" href="/admin/easy_admin_app/schoolyear/add"> New school year</a><br>
+					</div>
+				</div>
 			</div>
-			<div class="col-md-4 col-sm-12 item">
+			<div class="col-md-4 col-sm-12 item" style="color: #004c99; background: #f2f2f2;">
+				<div class="subjects">
+					<i class="fa fa-book" aria-hidden="true" style="color: #004c99" ></i>
+					<h1 class="title">Programmes<br></h1>
+				</div>
+				<div class="links">
+
+					<div class="col-md-12 col-sm-12">
+						<a style="text-align: left; float: left; color: #004c99;" href="/admin/easy_admin_app/programmeofstudy/"> All programmes </a>
+						<a style="text-align: right; float:right; color: #004c99;" href="/admin/easy_admin_app/programmeofstudy/add"> New programme </a> <br><br>
+					</div>
+					<div class="col-md-12 col-sm-12" >
+						<a style="text-align: left; float: left;color: #004c99";" href="/admin/easy_admin_app/subject/"> All subjects </a>
+						<a style="text-align: right; float: right;color: #004c99";" href="/admin/auth//admin/easy_admin_app/subject/add"> Add new subject </a> 
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-12 item" style="background: #0080ff;">
 				<div class="people">
 					<i class="fa fa-users" aria-hidden="true"></i>
 					<h1 class="title">Faculty</h1>
 				</div>
-					<a href="#"> Link to Student and Faculty staff</a> 
+				<div class="links" style="background: #0080ff;">
+					<div class="col-md-12 col-sm-12">
+						<a style="text-align: left; float: left;" href="/admin/auth/user/"> All students </a>
+						<a style="float:right; " href="/admin/auth/user/add"> New student </a><br><br>
+					</div>
+					<div class="col-md-12 col-sm-12">
+						<a style="text-align: left; float: left;" href="/admin/auth/user/"> All employees </a>
+						<a style="float:right;" href="/admin/auth/user/add"> New employee </a> 
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 8px;">
+			<div class="col-md-4 col-sm-12 item" style="color: #0080ff; background: #e6e6e6;" >
+				<div class="report">
+					<i class="fa fa-file-text-o" aria-hidden="true" style="color: #0080ff"></i>
+					<h1 class="title">Report</h1><br>
+						<a style="color: #0080ff;" href="/admin/filter/"> Generate a new report </a>
+						
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-12 item" style="background: #004c99;">
+				<div class="users">
+					<i class="fa fa-unlock" aria-hidden="true"></i>
+					<h2 class="title">Users</h2> <br>
+					<div class="col-md-12 col-sm-12">
+						<a style="text-align: left; float: left;" href="/admin/auth/user/"> All users </a>
+						<a style="float: right;" href="/admin/auth/user/add"> New user </a> 
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-12 item" style="color: #0066cc; background: #d9d9d9;">
+				<div class="admin">
+					<i class="fa fa-info-circle" aria-hidden="true"></i>
+					<h1 class="title">Admin panel</h1><br>
+					<a href="/admin/"> Go to Admin panel </a> <br>
+				</div> 
 			</div>
 		</div>
 	</div>
 	
 </div>
+

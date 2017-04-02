@@ -63,13 +63,13 @@ body {
 }
 
 #footer {
-    background-color: #1d212b;
+    background-color: #fefefe;
+    right: 0;
+    bottom: 0;
+    left: 0;
     position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  text-align: center;
+    padding: 1rem;
+    text-align: center;
 }
 
 #footer span {
@@ -81,48 +81,141 @@ body {
 
 
 #header {
-    background-color: #1d212b;
-    height: 70px;
+    background-color: #fefefe;
+    height: 50px;
     padding-top: 15px;
     padding-bottom: 15px;
     line-height: 26px;
     text-align: center;
 }
 
-#header .header-title {
+#header .header-title a{
     font-size: 20px;
+    color: #417690;
 }
 
+#header #user-tools {
+    color: #417690;
+    font-size: 14px;
+}
+
+#header #user-tools a {
+    color: #417690;
+    font-size: 12px;
+}
 #menu {
-    height: 100vh!important;
-    padding: 20px!important;
+    min-height: 100vh;
+    height: auto;
+    padding: 30px;
 }
 
 #menu .item {
     float: left;
-    text-align: center;
-    height: auto;
+    height: 350px;
     color: #fefefe;
     padding: 10px!important;
+}
+
+#menu .item a {
+    color: #fefefe;
+    font-size: 16px;
+}
+
+#menu .item h2 {
+    margin-bottom: 20px;
 }
 
 #menu .users {
     background: #004c99;
     padding: 20px;
+    text-align: center;
+}
+
+#menu .subjects {
+    background: #f2f2f2;
+    padding: 20px;
+    text-align: center;
 }
 
 #menu .academic {
     background: #0066cc;
     padding: 20px;
+    text-align: center;
+}
+#menu .links {
+    /*text-align: left;*/
+    padding: 10px;
+}
+
+#menu .report {
+    background: #e6e6e6;
+    padding: 20px;
+    text-align: center;
 }
 
 #menu .people {
     background: #0080ff;
     padding: 20px;
+    text-align: center;
 }
 
-#menu i {
-    font-size: 10em;
-    color: #fefefe;
-    margin-top: 50px;
+#menu .admin {
+    background: #d9d9d9;
+    padding: 20px;
+    text-align: center;
+    color: #0066cc;
 }
+
+#menu .admin i {
+    color: #0066cc;
+}
+
+#menu .admin a  {
+    color: #0066cc;
+}
+
+
+#menu i {
+    font-size: 9em;
+    color: #fefefe;
+    margin-top: 10px;
+}
+
+.dashboard {
+    overflow-x: hidden!important;
+    display: inline-block;
+    width: 100vw;
+    background: #fefefe;
+}
+.dashboard  h1 {
+    display: none!important;
+}
+
+.dashboard #content {
+    background: #417690;
+    width: 50%; 
+    margin-top: 20px;
+    padding: 20px;
+    margin-left: 40px;
+}
+
+.dashboard #content table {
+    background: #417690;
+
+}
+.dashboard #content th {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 15px;
+    color: #fefefe;
+    border-bottom: 0px;
+}
+
+.dashboard #content-main a {
+    color: #fefefe;
+}
+
+.dashboard #content-related {
+    color: #417690;
+}
+
