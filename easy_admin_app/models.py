@@ -82,11 +82,39 @@ class AcademicYear(models.Model):
         verbose_name_plural = _('Academic Years')
 
 
+class Employee(models.Model):
+    first_name = models.TextField(verbose_name=_('First name'))
+    last_name = models.TextField(verbose_name=_('Last name'))
+    date_of_birth = models.DateField(verbose_name=_('Date of birth'))
+    municipality_of_birth = models.ForeignKey(District, verbose_name=_('Municipality of birth'))
+    phone_number = models.TextField(null=True,
+                                    blank=True,
+                                    verbose_name=_('Broj telefona'))
+    email_address = models.EmailField(null=True,
+                                      blank=True,
+                                      verbose_name=_('E-mail'))
+    address = models.ForeignKey(Address,
+                                related_name='employees',
+                                on_delete=models.CASCADE,
+                                verbose_name=_('Address'))
+    finished_school = models.TextField(verbose_name=_('Finished education'))
+    occupation = models.TextField(verbose_name=_('Occupation'))
+    note = models.TextField(verbose_name=_('Note'), null=True, blank=True)
+
+    def __str__(self):
+        return '{} {}'.format(self.first_name, self.last_name)
+
+    class Meta:
+        db_table = 'employees'
+        verbose_name = _('Employee')
+        verbose_name_plural = _('Employees')
+
+
 class Subject(models.Model):
     name = models.TextField(verbose_name=_('Name'))
     limit = models.IntegerField(verbose_name=_('Maximum number of students'))
-    #professor
-    #assistant
+    professor = models.ManyToManyField(Employee, blank=True, verbose_name=_('Professor'),  related_name='professors')
+    assistant = models.ManyToManyField(Employee, blank=True, verbose_name=_('Assistant'),  related_name='assistants')
 
     def __str__(self):
         return self.name
@@ -133,7 +161,7 @@ class Student(models.Model):
                                 verbose_name=_('Address'))
     finished_school = models.TextField(verbose_name=_('Finished school'))
     index = models.IntegerField(verbose_name=_('Index number'))
-    status = models.CharField(max_length=11, choices=STUDENT_STATUS, default="", verbose_name=_('Enrolment status'))
+    status = models.CharField(max_length=20, choices=STUDENT_STATUS, default="", verbose_name=_('Enrolment status'))
     programme_of_study = models.ForeignKey(ProgrammeOfStudy,
                                 related_name='students',
                                 on_delete=models.CASCADE,
@@ -148,33 +176,4 @@ class Student(models.Model):
         verbose_name_plural = _('Students')
 
 
-class Employee(models.Model):
-    first_name = models.TextField(verbose_name=_('First name'))
-    last_name = models.TextField(verbose_name=_('Last name'))
-    date_of_birth = models.DateField(verbose_name=_('Date of birth'))
-    municipality_of_birth = models.ForeignKey(District, verbose_name=_('Municipality of birth'))
-    phone_number = models.TextField(null=True,
-                                    blank=True,
-                                    verbose_name=_('Broj telefona'))
-    email_address = models.EmailField(null=True,
-                                      blank=True,
-                                      verbose_name=_('E-mail'))
-    address = models.ForeignKey(Address,
-                                related_name='employees',
-                                on_delete=models.CASCADE,
-                                verbose_name=_('Address'))
-    finished_school = models.TextField(verbose_name=_('Zavrsena edukacija'))
-    occupation = models.TextField(verbose_name=_('Steceno zvanje'))
-    #workplace = models.ForeignKey(WorkPlace,
-     #                             related_name='employees',
-      #                            on_delete=models.CASCADE,
-       #                           verbose_name=_('Radno mjesto'))
-    note = models.TextField(verbose_name=_('Napomena'), null=True, blank=True)
 
-    def __str__(self):
-        return '{} {}'.format(self.first_name, self.last_name)
-
-    class Meta:
-        db_table = 'employees'
-        verbose_name = _('Employee')
-        verbose_name_plural = _('Employees')

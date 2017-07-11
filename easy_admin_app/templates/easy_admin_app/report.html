@@ -1,0 +1,73 @@
+{% extends "admin/base_site.html" %}
+
+{% load i18n static %}
+{% block title %}Izvještaji{% endblock %}
+{% load i18n %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="/admin">Homepage</a>
+    › Report
+    </div>
+
+
+{% endblock %}
+
+
+{% block usertools %}
+
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<div style="text-align: center;">
+    <i class="fa fa-file-text-o" aria-hidden="true" style="color: #666; font-size: 30px"></i> <span style="color: #666; font-size: 30px">New Report</span> <br><br>
+</div>
+
+
+<h1>Programmes</h1>
+<h3>Choose your filter...</h3>
+<hr><br>
+<form action="#" method="get">  {% csrf_token %}
+    <select name="programme" style="width: 350px;">
+        <option>Computer Science and Informatics</option>
+        <option>Automatic Control and Electronics</option>
+        <option>Electric Power Engineering</option>
+        <option>Telecommunication</option>
+
+    </select>
+    <input type="submit" value="OK" name="programmes_btn">
+</form>
+<br> <br>
+
+
+
+
+<h1>Employees</h1>
+<h3>Choose your filter...</h3>
+<hr><br>
+<form action="#" method="get">  {% csrf_token %}
+    <select name="employees" style="width: 350px;">
+        <option>Alphabetical order</option>
+        <option>Occupation</option>
+    </select>
+    <input type="submit" value="OK" name="employees_btn">
+</form>
+<br> <br>
+
+
+<h1>Students</h1>
+<h3>Choose your filter...</h3>
+<hr><br>
+<form action="#" method="get">  {% csrf_token %}
+    <select name="students" style="width: 350px;">
+        <option>Alphabetical order</option>
+        <option>Programme of study</option>
+        <option>Municipality of birth</option>
+    </select>
+    <input type="submit" value="OK" name="students_btn">
+</form>
+
+<script src="https://use.fontawesome.com/1817663804.js"></script>
+{% endblock %}
+

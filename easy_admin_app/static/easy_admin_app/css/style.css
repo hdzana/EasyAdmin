@@ -12,6 +12,7 @@ body {
 		margin:0 auto;
 	}
 
+
 .dashboard {
     height: 100%!important;
 }
@@ -219,3 +220,10 @@ body {
     color: #417690;
 }
 
+td, th {
+    font-size: 13px;
+    line-height: 16px;
+    border-bottom: 0px!important;
+    vertical-align: top;
+    padding: 8px;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
