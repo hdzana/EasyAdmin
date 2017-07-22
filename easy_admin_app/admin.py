@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import widgets
 from .models import *
+from django.utils.translation import ugettext_lazy as _
 
 
 class AppOverrides:
@@ -27,8 +28,22 @@ class CityAdmin(AppOverrides, admin.ModelAdmin):
         return {}
 admin.site.register(SchoolYear)
 admin.site.register(AcademicYear)
-admin.site.register(ProgrammeOfStudy)
+#admin.site.register(ProgrammeOfStudy)
 admin.site.register(Subject)
 admin.site.register(Student)
 admin.site.register(Employee)
+
+'''
+class SubjectInline(admin.TabularInline):
+    model = Subject
+    max_num = 10
+
+'''
+
+@admin.register(ProgrammeOfStudy)
+class ProgrammeOfStudyAdmin(AppOverrides, admin.ModelAdmin):
+    filter_horizontal = ['subjects']
+
+
+
 

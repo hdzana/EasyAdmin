@@ -34,14 +34,14 @@ class MyPrint:
         table_data[:] = []
         order = 1
 
-        table_data.append(["Broj indeksa", "Ime i prezime"])
+        table_data.append(["Broj indeksa", "Ime i prezime", "Naziv ciklusa"])
         students = Student.objects.all().order_by('last_name')
         for student in students:
             if student.programme_of_study.name == str(programme_name):
-                table_data.append([str(student.index), str(student)])
+                table_data.append([str(student.index), str(student), str(student.programme_of_study.academic_year)])
 
         if len(table_data) > 1:
-            table_with_style = Table(table_data, [1.5 * inch, 3 * inch, 0.5 * inch])
+            table_with_style = Table(table_data, [1 * inch, 2 * inch, 2.5 * inch])
             table_with_style.setStyle(TableStyle([
                 ('FONT', (0, 0), (-1, -1), 'Vera'),
                 ('FONTSIZE', (0, 1), (1, 0), 10),
