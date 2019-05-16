@@ -1,2 +1,2 @@
 # EasyAdmin
-[Django&amp;Python] Bachelor - Final project
+[Django&amp;Python]
